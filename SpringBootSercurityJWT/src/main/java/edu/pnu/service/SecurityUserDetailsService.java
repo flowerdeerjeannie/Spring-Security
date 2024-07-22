@@ -17,9 +17,12 @@ public class SecurityUserDetailsService implements UserDetailsService {
 	@Autowired
 	private MemberRepository memRepo;
 	
+	//userdetailsservice를 받아서 securityUserDetailsService를 작성함
+	//db에 접근하는 클래스!
 	
 	//loadUserByUsername 메소드는 
-	//사용자가 입력한 사용자명을 바탕으로 데이터베이스에서 사용자의 정보를 조회하고, 이 정보를 바탕으로 User 객체를 생성하여 반환하는 작업을 수행
+	//사용자가 입력한 사용자명을 바탕으로 데이터베이스에서 사용자의 정보를 조회하고
+	//이 정보를 바탕으로 User 객체를 생성하여 반환하는 작업을 수행
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Member member = memRepo.findById(username)
